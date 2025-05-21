@@ -1,0 +1,126 @@
+/* Base styles */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e0eaff, #cce0ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Centering the container */
+.login-container {
+  width: 100%;
+  max-width: 500px;
+  padding: 50px 40px;
+  background-color: rgba(230, 240, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0, 0, 255, 0.15);
+  text-align: center;
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.5s ease;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Heading */
+.login-container h2 {
+  font-size: 2.5rem;
+  color: #004aad;
+  margin-bottom: 35px;
+}
+
+/* Form styling */
+.login-form input {
+  width: 100%;
+  padding: 18px 20px;
+  margin-bottom: 25px;
+  border: 2px solid #004aad;
+  border-radius: 10px;
+  font-size: 18px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background-color: white;
+}
+
+.login-form input:focus {
+  border-color: #003080;
+  box-shadow: 0 0 10px rgba(0, 74, 173, 0.3);
+  outline: none;
+}
+
+/* Button styling */
+.login-form button {
+  width: 100%;
+  padding: 18px;
+  font-size: 20px;
+  font-weight: bold;
+  background: linear-gradient(to right, #004aad, #002f6c);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.login-form button:hover {
+  background: linear-gradient(to right, #002f6c, #001f4d);
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 47, 108, 0.3);
+}
+
+/* Error message */
+.error {
+  color: #d93025;
+  margin-bottom: 20px;
+  background: #ffe6e6;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* Link text */
+.login-container p {
+  margin-top: 30px;
+  font-size: 16px;
+  color: #333;
+}
+
+.login-container p a {
+  color: #004aad;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-container p a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .login-container {
+    padding: 40px 25px;
+  }
+
+  .login-container h2 {
+    font-size: 2rem;
+  }
+
+  .login-form input,
+  .login-form button {
+    font-size: 17px;
+    padding: 16px;
+  }
+}
