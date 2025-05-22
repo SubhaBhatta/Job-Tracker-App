@@ -1,39 +1,36 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import './Login.css';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./Login.css";
 
 const Login = () => {
-  const navigate = useNavigate();
-
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
 
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const handleChange = (e) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const storedUser = JSON.parse(localStorage.getItem('user'));
+    const storedUser = JSON.parse(localStorage.getItem("user"));
 
     if (
       storedUser &&
       formData.email === storedUser.email &&
       formData.password === storedUser.password
     ) {
-      // Successful login
-      localStorage.setItem('isLoggedIn', 'true'); // Optional
-      navigate('/dashboard'); // redirect to some protected route
+      localStorage.setItem("isLoggedIn", "true");
+      setLoggedIn(true);
     } else {
-      setError('Invalid email or password');
+      setError("Invalid email or password");
     }
   };
 
@@ -43,29 +40,38 @@ const Login = () => {
 
       {error && <p className="error">{error}</p>}
 
-      <form onSubmit={handleSubmit} className="login-form">
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
+      {!loggedIn ? (
+        <form onSubmit={handleSubmit} className="login-form">
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+          <button type="submit">Login</button>
+        </form>
+      ) : (
+        <div>
+          <p>Login successful!</p>
+          <Link to="/dashboard">
+            <button className="Btn">Go to Dashboard</button>
+          </Link>
+        </div>
+      )}
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-
-        <button type="submit">Login</button>
-      </form>
-
-      <p>Don't have an account? <Link to="/signup">Signup</Link></p>
+      <p>
+        Don't have an account? <Link to="/signup">Signup</Link>
+      </p>
     </div>
   );
 };

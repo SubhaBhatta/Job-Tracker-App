@@ -53,6 +53,7 @@ body {
   font-size: 18px;
   transition: border-color 0.3s, box-shadow 0.3s;
   background-color: white;
+  color: black;
 }
 
 .login-form input:focus {
@@ -67,7 +68,7 @@ body {
   padding: 18px;
   font-size: 20px;
   font-weight: bold;
-  background: linear-gradient(to right, #004aad, #002f6c);
+  background-color: black;
   color: white;
   border: none;
   border-radius: 10px;
