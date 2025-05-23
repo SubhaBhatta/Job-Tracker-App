@@ -12,4 +12,9 @@ select {
   flex: 1 1 180px;
   background-color: #f9f9f9;
   color: #333;
+  width: 200px;
+}
+
+button {
+  color: white;
 }
