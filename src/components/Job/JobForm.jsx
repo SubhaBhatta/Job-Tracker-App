@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Dashboard.css";
+import "../Dashboard/Dashboard.css";
 import JobList from "../Job/JobList";
 import JobForm from "../Job/JobForm";
 
