@@ -24,17 +24,21 @@ const Dashboard = () => {
     }
   }, []);
 
-  const saveJobsToStorage = (jobs) => {
-    localStorage.setItem("jobs", JSON.stringify(jobs));
+  const saveJobsToStorage = (updatedJobs) => {
+    localStorage.setItem("jobs", JSON.stringify(updatedJobs));
   };
 
   const handleSave = (jobData) => {
     let updatedJobs;
-    if (jobs.some((job) => job.id === jobData.id)) {
-      updatedJobs = jobs.map((job) => (job.id === jobData.id ? jobData : job));
-    } else {
+
+    if (!jobData.id) {
+      jobData.id = Date.now();
+      jobData.date = new Date().toISOString();
       updatedJobs = [jobData, ...jobs];
+    } else {
+      updatedJobs = jobs.map((job) => (job.id === jobData.id ? jobData : job));
     }
+
     setJobs(updatedJobs);
     saveJobsToStorage(updatedJobs);
   };
@@ -75,8 +79,8 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-      <h1>Welcome, {userName || "Guest"}!</h1>
-      <p>This is your personalized dashboard.</p>
+      <h1 className="WelcomeText">Welcome, {userName || "Guest"}!</h1>
+      <p className="paragraph">This is your personalized dashboard.</p>
 
       <div className="filters-container">
         <select
@@ -130,8 +134,7 @@ const Dashboard = () => {
       <br />
 
       <Link to="/Stats">
-        {" "}
-        <button>Click To See Stats !! :)</button>
+        <button className="StatsBtn">Click To See Stats !! :)</button>
       </Link>
     </div>
   );

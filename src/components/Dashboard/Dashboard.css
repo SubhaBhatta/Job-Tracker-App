@@ -2,7 +2,11 @@ body {
   color: black;
 }
 
-/* All inputs and select */
+.paragraph {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
 input,
 select {
   padding: 0.5rem 1rem;
@@ -17,4 +21,81 @@ select {
 
 button {
   color: white;
+}
+
+.hidden {
+  width: 500px;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.filters-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filters-container select,
+.filters-container input {
+  padding: 8px;
+  font-size: 16px;
+  flex: 1;
+  min-width: 180px;
+}
+
+.form-section {
+  margin-bottom: 30px;
+}
+
+.job-section {
+  margin-top: 20px;
+}
+
+.job-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.job-card {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+}
+
+.job-card h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.job-card p {
+  margin: 5px 0;
+}
+
+.job-card button {
+  margin-right: 10px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.WelcomeText {
+  margin-top: 250px;
+  width: 800px;
+  margin-right: 50%;
+  margin-left: 20%;
+}
+
+.StatsBtn {
+  margin-bottom: 10px;
+  margin-right: 35%;
+  margin-left: 40%;
+  width: 200px;
 }
