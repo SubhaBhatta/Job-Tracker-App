@@ -27,7 +27,7 @@ body {
   }
 }
 
-/* New Wrapper for Left & Right Layout */
+/* Wrapper for layout */
 .intro-wrapper {
   display: flex;
   height: 100vh;
@@ -38,6 +38,7 @@ body {
   box-sizing: border-box;
 }
 
+/* Left content box */
 .intro-left {
   flex: 1;
   max-width: 50%;
@@ -55,6 +56,7 @@ body {
   text-shadow: 1px 1px 7px rgba(0, 0, 0, 0.7);
 }
 
+/* Button group */
 .button-group {
   display: flex;
   gap: 20px;
@@ -81,6 +83,7 @@ body {
   box-shadow: 0 6px 18px rgba(0, 119, 204, 0.4);
 }
 
+/* Right image */
 .intro-right {
   flex: 1;
   display: flex;
@@ -95,8 +98,38 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive for small screens */
-@media (max-width: 768px) {
+/* Toggle button */
+.toggle-button {
+  margin: 1rem;
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-color);
+  background-color: var(--primary-bg);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  text-align: center;
+  user-select: none;
+  outline: none;
+}
+
+.toggle-button:hover {
+  background-color: rgba(255, 255, 255, 0.85);
+  color: var(--hover-color);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 22px rgba(0, 119, 204, 0.3);
+}
+
+.toggle-button:active {
+  transform: scale(0.98);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive layout */
+@media (max-width: 750px) {
   .intro-wrapper {
     flex-direction: column;
     padding: 20px;
@@ -114,7 +147,7 @@ body {
   }
 
   .intro-button {
-    width: 100%;
+    width: 50%;
     text-align: center;
   }
 
@@ -122,4 +155,52 @@ body {
     max-width: 250px;
     margin-top: 30px;
   }
+
+  .intro-right {
+    display: none; /* Hides image on small screens */
+  }
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
+  background-size: 800% 800%;
+  animation: gradientShift 20s ease infinite;
+  color: #f0f0f0;
+}
+
+body.dark-mode .intro-left {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+body.dark-mode .intro-button {
+  background-color: #333;
+  color: #fff;
+}
+
+body.dark-mode .intro-button:hover {
+  background-color: #444;
+  color: #00bfff;
+}
+
+body.dark-mode .toggle-button {
+  background-color: #333;
+  color: #fff;
+}
+
+body.dark-mode .toggle-button:hover {
+  background-color: #444;
+  color: #00bfff;
+}
+
+body.dark-mode .toggle-button {
+  background-color: #222;
+  color: #eee;
+}
+
+body.dark-mode .toggle-button:hover {
+  background-color: #333;
+  color: #00bfff;
+  box-shadow: 0 8px 22px rgba(0, 191, 255, 0.4);
 }

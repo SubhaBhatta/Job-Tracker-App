@@ -99,3 +99,68 @@ button {
   margin-left: 40%;
   width: 200px;
 }
+
+/* Responsive for tablets */
+@media (max-width: 768px) {
+  .WelcomeText {
+    width: 90%;
+    margin: 150px auto 0 auto;
+    text-align: center;
+  }
+
+  .StatsBtn {
+    margin: 10px auto;
+    width: 70%;
+  }
+
+  .filters-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .filters-container select,
+  .filters-container input {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .job-card {
+    padding: 10px;
+  }
+
+  input,
+  select {
+    width: 100%;
+    flex: 1 1 auto;
+  }
+}
+
+/* Responsive for phones */
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 10px;
+  }
+
+  .paragraph {
+    font-size: large;
+    text-align: center;
+  }
+
+  .job-card h3 {
+    font-size: 16px;
+  }
+
+  .job-card button {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .WelcomeText {
+    margin-top: 100px;
+    width: 95%;
+  }
+
+  .StatsBtn {
+    width: 90%;
+  }
+}
