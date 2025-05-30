@@ -60,7 +60,7 @@ const Stats = () => {
 
   return (
     <div className="stats-container">
-      <button className="LogoutBtn" onClick={handleLogout}>
+      <button className="logout-btn" onClick={handleLogout}>
         Logout
       </button>
       <h1>Job Application Statistics</h1>
