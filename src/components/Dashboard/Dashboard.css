@@ -1,62 +1,140 @@
 body {
   color: black;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
 
-.paragraph {
-  font-size: xx-large;
-  font-weight: bold;
-}
-
-input,
-select {
-  padding: 0.5rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-  flex: 1 1 180px;
-  background-color: #f9f9f9;
-  color: #333;
-  width: 200px;
-}
-
-button {
-  color: white;
-}
-
-.hidden {
-  width: 500px;
-}
-
-.dashboard-container {
+/* Main dashboard wrapper - full height with flex layout */
+.dashboard-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
   box-sizing: border-box;
 }
 
+/* Fixed header section */
+.welcome-header {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  background-color: #93c9ff;
+  border-bottom: 1px solid #e0e0e0;
+  position: relative;
+}
+
+.welcome-heading {
+  font-size: 2.5rem;
+  margin: 10px 0;
+  color: #333;
+}
+
+.welcome-paragraph {
+  font-size: xx-large;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  color: #555;
+}
+
+/* Logout button positioned in top right */
+.logout-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 16px;
+  background-color: #ff5c5c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #e04848;
+}
+
+/* Scrollable main content */
+.dashboard-scrollable {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #79c3ff;
+}
+
+/* Filters section */
 .filters-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.filters-container select,
-.filters-container input {
-  padding: 8px;
-  font-size: 16px;
+/* Form inputs and selects */
+input,
+select {
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #ffffff;
+  color: #333;
+  min-width: 200px;
   flex: 1;
-  min-width: 180px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Buttons */
+button {
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+/* Form section */
 .form-section {
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Job section */
+.job-section {
   margin-bottom: 30px;
 }
 
-.job-section {
-  margin-top: 20px;
+.job-section h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
 }
 
+/* Job list styling */
 .job-list {
   display: flex;
   flex-direction: column;
@@ -64,53 +142,87 @@ button {
 }
 
 .job-card {
-  background-color: #f8f9fa;
-  padding: 15px;
+  background-color: #ffffff;
+  padding: 20px;
   border-radius: 8px;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .job-card h3 {
-  margin: 0;
-  font-size: 18px;
+  margin: 0 0 10px 0;
+  font-size: 1.25rem;
+  color: #333;
 }
 
 .job-card p {
   margin: 5px 0;
+  color: #666;
+  line-height: 1.4;
 }
 
 .job-card button {
   margin-right: 10px;
-  padding: 6px 12px;
+  margin-top: 10px;
+  padding: 8px 16px;
   font-size: 14px;
   cursor: pointer;
 }
 
-.WelcomeText {
-  margin-top: 250px;
-  width: 800px;
-  margin-right: 50%;
-  margin-left: 20%;
+/* Stats section */
+.stats-section {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 20px;
 }
 
-.StatsBtn {
-  margin-bottom: 10px;
-  margin-right: 35%;
-  margin-left: 40%;
-  width: 200px;
+.stats-btn {
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  min-width: 200px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Responsive for tablets */
+.stats-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+/* Responsive design for tablets */
 @media (max-width: 768px) {
-  .WelcomeText {
-    width: 90%;
-    margin: 150px auto 0 auto;
-    text-align: center;
+  .dashboard-wrapper {
+    height: 100vh;
   }
 
-  .StatsBtn {
-    margin: 10px auto;
-    width: 70%;
+  .welcome-header {
+    padding: 15px;
+  }
+
+  .welcome-heading {
+    font-size: 2rem;
+  }
+
+  .welcome-paragraph {
+    font-size: x-large;
+  }
+
+  .logout-btn {
+    position: static;
+    align-self: flex-end;
+    margin-bottom: 15px;
+  }
+
+  .dashboard-scrollable {
+    padding: 15px;
   }
 
   .filters-container {
@@ -125,42 +237,68 @@ button {
   }
 
   .job-card {
+    padding: 15px;
+  }
+
+  .stats-btn {
+    width: 80%;
+    min-width: unset;
+  }
+}
+
+/* Responsive design for phones */
+@media (max-width: 480px) {
+  .welcome-header {
     padding: 10px;
+  }
+
+  .welcome-heading {
+    font-size: 1.5rem;
+  }
+
+  .welcome-paragraph {
+    font-size: large;
+  }
+
+  .dashboard-scrollable {
+    padding: 10px;
+  }
+
+  .filters-container {
+    padding: 15px;
+  }
+
+  .form-section {
+    padding: 15px;
+  }
+
+  .job-section h1 {
+    font-size: 1.5rem;
+  }
+
+  .job-card {
+    padding: 12px;
+  }
+
+  .job-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .job-card button {
+    padding: 6px 12px;
+    font-size: 12px;
+    margin-right: 5px;
+  }
+
+  .stats-btn {
+    width: 90%;
+    padding: 10px 20px;
+    font-size: 1rem;
   }
 
   input,
   select {
-    width: 100%;
-    flex: 1 1 auto;
-  }
-}
-
-/* Responsive for phones */
-@media (max-width: 480px) {
-  .dashboard-container {
-    padding: 10px;
-  }
-
-  .paragraph {
-    font-size: large;
-    text-align: center;
-  }
-
-  .job-card h3 {
-    font-size: 16px;
-  }
-
-  .job-card button {
-    padding: 5px 10px;
-    font-size: 12px;
-  }
-
-  .WelcomeText {
-    margin-top: 100px;
-    width: 95%;
-  }
-
-  .StatsBtn {
-    width: 90%;
+    padding: 10px 12px;
+    font-size: 0.9rem;
   }
 }

@@ -77,65 +77,78 @@ const Dashboard = () => {
       return 0;
     });
 
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("jobs");
+    window.location.href = "/login";
+  };
+
   return (
-    <div className="dashboard-container">
-      <h1 className="WelcomeText">Welcome, {userName || "Guest"}!</h1>
-      <p className="paragraph">This is your personalized dashboard.</p>
+    <div className="dashboard-wrapper">
+      <header className="welcome-header">
+        <button className="logout-btn" onClick={handleLogout}>
+          Logout
+        </button>
+        <h1 className="welcome-heading">Welcome, {userName || "Guest"}!</h1>
+        <p className="welcome-paragraph">
+          This is your personalized dashboard.
+        </p>
+      </header>
 
-      <div className="filters-container">
-        <select
-          value={statusFilter}
-          onChange={(e) => setStatusFilter(e.target.value)}
-        >
-          <option value="All">All Statuses</option>
-          <option value="Applied">Applied</option>
-          <option value="Interview">Interview</option>
-          <option value="Offer">Offer</option>
-          <option value="Rejected">Rejected</option>
-        </select>
+      <main className="dashboard-scrollable">
+        <div className="filters-container">
+          <select
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value)}
+          >
+            <option value="All">All Statuses</option>
+            <option value="Applied">Applied</option>
+            <option value="Interview">Interview</option>
+            <option value="Offer">Offer</option>
+            <option value="Rejected">Rejected</option>
+          </select>
 
-        <select
-          value={sortOption}
-          onChange={(e) => setSortOption(e.target.value)}
-        >
-          <option value="Newest">Newest First</option>
-          <option value="Oldest">Oldest First</option>
-          <option value="CompanyAZ">Company A-Z</option>
-          <option value="CompanyZA">Company Z-A</option>
-        </select>
+          <select
+            value={sortOption}
+            onChange={(e) => setSortOption(e.target.value)}
+          >
+            <option value="Newest">Newest First</option>
+            <option value="Oldest">Oldest First</option>
+            <option value="CompanyAZ">Company A-Z</option>
+            <option value="CompanyZA">Company Z-A</option>
+          </select>
 
-        <input
-          type="text"
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-          placeholder="Search company or position"
-        />
-      </div>
+          <input
+            type="text"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            placeholder="Search company or position"
+          />
+        </div>
 
-      <br />
+        <div className="form-section">
+          <JobForm
+            onSave={handleSave}
+            jobToEdit={jobToEdit}
+            clearEdit={clearEdit}
+          />
+        </div>
 
-      <div className="form-section">
-        <JobForm
-          onSave={handleSave}
-          jobToEdit={jobToEdit}
-          clearEdit={clearEdit}
-        />
-      </div>
+        <div className="job-section">
+          <h1>Your Job Applications</h1>
+          <JobList
+            jobs={filteredJobs}
+            onEdit={handleEdit}
+            onDelete={handleDelete}
+          />
+        </div>
 
-      <div className="job-section">
-        <h1>Your Job Applications</h1>
-        <JobList
-          jobs={filteredJobs}
-          onEdit={handleEdit}
-          onDelete={handleDelete}
-        />
-      </div>
-
-      <br />
-
-      <Link to="/Stats">
-        <button className="StatsBtn">Click To See Stats !! :)</button>
-      </Link>
+        <div className="stats-section">
+          <Link to="/Stats">
+            <button className="stats-btn">Click To See Stats !! :)</button>
+          </Link>
+        </div>
+      </main>
     </div>
   );
 };

@@ -52,8 +52,17 @@ const Stats = () => {
     },
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("jobs");
+    window.location.href = "/login";
+  };
+
   return (
     <div className="stats-container">
+      <button className="LogoutBtn" onClick={handleLogout}>
+        Logout
+      </button>
       <h1>Job Application Statistics</h1>
       {jobs.length > 0 ? (
         <div className="chart-wrapper">
