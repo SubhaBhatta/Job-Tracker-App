@@ -29,7 +29,7 @@ const Stats = () => {
     datasets: [
       {
         label: "Job Applications",
-        data: chartStatus.map((status) => 1), // Each job is one slice
+        data: chartStatus.map((status) => 1), 
         backgroundColor: chartStatus.map(
           (status) => statusColorMap[status] || statusColorMap.Default
         ),
